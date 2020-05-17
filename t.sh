@@ -6,7 +6,7 @@ v3=$(sed -n 3p tt)
 v4=$(sed -n 4p tt)
 cp=$v1:$v2:$v3:$v4
 echo "javac -d ./target/classes/ -cp ./target/classes:"$cp" ./src/main/java/.java" > compile_main.sh
-echo "java -cp ./target/classes:"$cp" ./target/classes/" > run_main.sh
+echo "java -cp ./target/classes:"$cp > run_main.sh
 echo "javac -d ./target/test-classes/ -cp ./target/test-classes:./target/classes:"$cp" ./src/test/java/.java" > compile_test.sh 
-echo "java -cp ./target/test-classes:./target/classes:"$cp" ./target/test-classes/" > run_test.sh
+echo "java -cp ./target/test-classes:./target/classes:"$cp" org.junit.runner.JUnitCore" > run_test.sh
 rm tt
